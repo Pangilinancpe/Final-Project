@@ -1,17 +1,3 @@
-"""
-Maison Élara — Hotel Booking System (PyQt6)
-
-Run with:
-    pip install PyQt6
-    python main.py
-
-main.py is only the orchestrator: it owns the NavBar + QStackedWidget, and
-is the one place that knows how a view's "go to X" request (BaseView.go /
-navigate_to signal) maps to an actual page switch. All screen logic lives in
-views/*.py; shared data in data.py; colors/constants in config.py; the Qt
-stylesheet in styles.py; formatting/image-loading helpers in utils.py.
-"""
-
 import sys
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QStackedWidget
