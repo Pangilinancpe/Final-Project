@@ -6,6 +6,7 @@ from PyQt6.QtGui import QColor, QLinearGradient, QPainter, QPainterPath, QPen, Q
 from PyQt6.QtWidgets import QFrame, QGridLayout, QHBoxLayout, QLabel, QPushButton, QScrollArea, QSpinBox, QVBoxLayout, QWidget
 
 from .base_view import BaseView
+from config import COLORS, SERVICE_IMAGE_OPACITY, SERVICE_FADE_STOPS
 from data import SERVICES
 from utils import fmt_currency
 
@@ -25,7 +26,6 @@ class ServiceCard(QFrame):
                 self.background = QPixmap(str(path))
                 if not self.background.isNull():
                     break
-        self.setStyleSheet('QFrame#serviceCard QLabel { background: transparent; }')
 
     def paintEvent(self, event):
         painter = QPainter(self)
@@ -34,7 +34,7 @@ class ServiceCard(QFrame):
         clip = QPainterPath()
         clip.addRoundedRect(rect, 9, 9)
         painter.setClipPath(clip)
-        painter.fillRect(rect, QColor("#1b2432"))
+        painter.fillRect(rect, QColor(COLORS["card"]))
 
         if not self.background.isNull():
             # Cover the card without stretching; excess edges are cropped.
@@ -42,17 +42,17 @@ class ServiceCard(QFrame):
                 self.size(), Qt.AspectRatioMode.KeepAspectRatioByExpanding,
                 Qt.TransformationMode.SmoothTransformation,
             )
-            painter.setOpacity(0.85)
+            painter.setOpacity(SERVICE_IMAGE_OPACITY)
             painter.drawPixmap(
                 (self.width() - scaled.width()) // 2,
                 (self.height() - scaled.height()) // 2, scaled,
             )
             painter.setOpacity(1.0)
             fade = QLinearGradient(0, 0, self.width(), 0)
-            fade.setColorAt(0.0, QColor(27, 36, 50, 255))
-            fade.setColorAt(0.35, QColor(27, 36, 50, 245))
-            fade.setColorAt(0.65, QColor(27, 36, 50, 150))
-            fade.setColorAt(1.0, QColor(27, 36, 50, 65))
+            for position, alpha in SERVICE_FADE_STOPS:
+                color = QColor(COLORS["card"])
+                color.setAlpha(alpha)
+                fade.setColorAt(position, color)
             painter.fillRect(rect, fade)
 
         painter.setPen(QPen(QColor("#364154"), 1))
@@ -247,4 +247,3 @@ class ServicesView(BaseView):
             widget.setValue(0)
             widget.blockSignals(False)
         self._update_summary()
-        self._send_booking("payment")
