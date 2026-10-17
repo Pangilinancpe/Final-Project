@@ -178,12 +178,12 @@ class ServicesView(BaseView):
         return card
 
     def _change_quantity(self, quantity, step):
-        # annoying ahhh text selection when you click a button (removed it by deselecting) [Im a genius]
+        # Text gets selected after increasing quantity for some reason (fixed via deselecting)
         quantity.stepBy(step)
         quantity.lineEdit().deselect()
 
     def on_enter(self, data=None):
-        # Load full booking, no services selection means nothing was picked something something yada yada you get it
+        # Load full booking, no services selection means nothing was picked
         self.booking = deepcopy(data) if data is not None else {}
         saved = self.booking.get("services", {})
         for service in self.services:
@@ -199,7 +199,7 @@ class ServicesView(BaseView):
         self._update_summary()
 
     def get_selected_services(self):
-        # Return the only selected IDs and quantities, e.g. {'laundry': 2} or somethin' else
+        # Return the only selected IDs and quantities, e.g. {'laundry': 2, etc.}
         selected = {}
         for service_id, widget in self.quantity_inputs.items():
             if widget.value() > 0:
@@ -241,7 +241,7 @@ class ServicesView(BaseView):
         self._send_booking("payment")
 
     def _skip(self):
-        # removes earlier selections if 'skip' is pressed (bus happenin' that I could see from a mile away)
+        # removes earlier selections if 'skip' is pressed
         for widget in self.quantity_inputs.values():
             widget.blockSignals(True)
             widget.setValue(0)
