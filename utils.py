@@ -1,3 +1,3 @@
-# easily turn number into pesos lmao like (67 -> ₱67.00) with TWO decimal places, im so cool
+# Easily turn numbers into pesos for displaying via print
 def fmt_currency(amount):
     return f"₱{amount:,.2f}"
