@@ -1,4 +1,4 @@
-# This the freaking shared Qt stylesheet. Apply once to QApplication in main.py
+# Shared Qt stylesheet. Apply once to QApplication in main.py
 
 from config import COLORS
 
