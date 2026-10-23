@@ -1,0 +1,1 @@
+Service pictures (airport_transfer.png, celebration_package.png, extra_bed.png, late_checkout.png, laundry.png, spa_massage.png). Copy them here from your repo, or the app downloads them on first run.
