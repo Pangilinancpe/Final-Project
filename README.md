@@ -1,3 +1,5 @@
+**La Fleur Sanctuary — HotelBooking System**
+
 # Final-Project
 
 Final Project for CPE009B
@@ -30,7 +32,25 @@ hotel_booking_qt/
     ├── payment_view.py
     └── receipt_view.py
 ```
+## Program Flow
 
+Home ──► Rooms ──► Room Detail ──┐
+ │        │             │        │
+ │        └─────────────┴───────► Booking (Step 1)
+ │                                  │
+ │                                  ▼
+ │                                Dining (Step 2)
+ │                                  │
+ │                                  ▼
+ │                                Services (Step 3)
+ │                                  │
+ │                                  ▼
+ │                                Payment (Step 4)
+ │                                  │
+ │                                  ▼
+ └◄──────── Done / Cancel ◄──────── Receipt
+
+ 
 ## How the App Works
 
 Every screen is a **view** stored inside one `QStackedWidget`, and only one view is visible at a time. When a view wants to go somewhere else, it sends a signal with the name of the next view and a small dictionary of data. `main.py` catches that signal, hands the data to the next view, and shows it.
