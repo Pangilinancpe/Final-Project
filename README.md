@@ -34,6 +34,7 @@ hotel_booking_qt/
 ```
 ## Program Flow
 
+```text
 Home ──► Rooms ──► Room Detail ──┐
  │        │             │        │
  │        └─────────────┴───────► Booking (Step 1)
@@ -49,7 +50,7 @@ Home ──► Rooms ──► Room Detail ──┐
  │                                  │
  │                                  ▼
  └◄──────── Done / Cancel ◄──────── Receipt
-
+```
  
 ## How the App Works
 
