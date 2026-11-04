@@ -1,0 +1,3 @@
+﻿reference,created_at,guest_names,contact,email,payer_name,payer_contact,room_name,room_tier,pricing_mode,duration,adults,seniors,children,payment_method,payment_provider,payment_account_name,payment_account_ref,room_charge,discount,dining_total,services_total,grand_total
+HB-IWCVOO75,2026-11-04T21:20:55,Al Twain D. Pasion,14768903895,pasion@gmail.com,Al Twain D. Pasion,14768903895,Serene,Presidential,day,1,1,0,0,cash,,,,24000.0,0.0,1150.0,1800.0,26950.0
+HB-FV7RFSAF,2026-11-04T21:18:57,"Bienvenido B. Pangilinan Jr., Jayne L. Dejamco",0987654321,bien@gmail.com,Bienvenido B. Pangilinan Jr.,0987654321,Celestial,Presidential,day,1,2,0,0,ewallet,GCash,BienPangilinan,12345678900,35000.0,0.0,3930.0,2800.0,41730.0
