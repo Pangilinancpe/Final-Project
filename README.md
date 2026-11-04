@@ -153,3 +153,13 @@ The user picks cash, e-wallet, online banking, or card, and the page shows the f
 ### `views/receipt_view.py`
 
 This is the final page. It builds the receipt with a randomly generated reference number, the date, the guest details, the payment method, every charge, and the total amount due. The **Print** button only shows a message for now, and the **Done** button sends the user back to the home page.
+
+
+## Contributors
+
+- Adrian Walter  Santos
+- Bienvenido Pangilinan
+- Eli Justin Reyes
+- Ralph Dueñas
+- Ryle Medina
+- Yazinel Corro
